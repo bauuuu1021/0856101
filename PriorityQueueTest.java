@@ -8,8 +8,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.assertEquals;
+//import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @RunWith(value=Parameterized.class)
 public class PriorityQueueTest {
@@ -43,21 +43,21 @@ public class PriorityQueueTest {
         }
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void add_null() {
         testQueue = new PriorityQueue<Integer>();
-        Exception exception = assertThrows(NullPointerException.class, ()->testQueue.add(null));
+        testQueue.add(null);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void create_nullArr() {
         testQueue = new PriorityQueue<Integer>();
         Integer[] arr = null;
-        Exception exception = assertThrows(NullPointerException.class, ()->testQueue.toArray(arr));
+        testQueue.toArray(arr);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void wrong_type() {
-        Exception exception = assertThrows(IllegalArgumentException.class, ()->new PriorityQueue<Integer>(-1));
+    	PriorityQueue priority = new PriorityQueue<Integer>(-1);
     }
 }
