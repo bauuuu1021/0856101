@@ -20,7 +20,7 @@ public class PriorityQueueTest {
     @Parameters
     public static Collection testCase() {
         return Arrays.asList(new Integer[][][] {
-                {{2, 3, 1}, {1, 2, 3}},
+                {{22, 3, 1}, {1, 2, 3}},
                 {{1, 3, -1}, {-1, 1, 3}},
                 {{100, -1, 8, 32}, {-1, 8, 32, 100}},
                 {{5, 10, 30, 20, 15}, {5, 10, 15, 20, 30}},
