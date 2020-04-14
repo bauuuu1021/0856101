@@ -1,15 +1,17 @@
 language: java
 
+dist: trusty
+
 jdk:
   - oraclejdk9
 
 addons:
   apt:
-    package:
+    packages:
     - junit4
     - libmockito-java
 
 script:
   - mkdir -p bin
-  - javac -classpath /usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar src/PriorityQueueTest.java -d bin
+  - javac -classpath /usr/share/java/junit4.jar:/usr/share/java/mockito-core.jar PriorityQueueTest.java -d bin
   - cd bin ; java -classpath .:/usr/share/java/junit4.jar org.junit.runner.JUnitCore PriorityQueueTest
